@@ -1,14 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Economica&family=Permanent+Marker&display=swap');
+
+:root {
+  --main: #234e70;
+  --sub: #faf8bf;
+  --title-font: 'Permanent Marker', cursive, serif;
+  --title-font-size: 3.3rem;
+  --main-font: 'Economica', sans-serif;
+  --main-font-size: 1.2rem;
+}
+
 body {
   display: grid;
-  grid-template: 20% 1fr 5%/ 1fr;
+  grid-template: 20% 1fr 5% 30px/ 1fr;
+  font-family: var(--main-font);
+  font-size: var(--main-font-size);
   place-items: center;
+  background-color: #faf8bf;
+  background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z' fill='%23234e70' fill-opacity='0.33' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 header {
   display: grid;
   text-align: center;
   margin: 0 auto;
-  width: clamp(320px, 50%, 800px);
+  width: clamp(320px, 50%, 735px);
   max-width: 100vw;
   grid-template: 1fr 42px / 10px 80px 80px 1fr 10px 70px 10px;
   gap: 10px;
@@ -17,6 +32,12 @@ header {
 header h1 {
   grid-column: 1 / -1;
   place-self: center;
+  font-family: var(--title-font);
+  font-size: var(--title-font-size);
+  -webkit-text-stroke: 1px black;
+  color: white;
+  text-shadow: 4px 6px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 header .player-1 {
@@ -28,10 +49,35 @@ header .player-2 {
 }
 
 .player-1,
-.player-2 {
-  place-self: center;
+.player-2,
+footer p {
+  background-color: var(--sub);
+  border: 1px solid var(--main);
+  padding: 0.5em;
+  line-height: 20px;
+}
+
+.player-1,
+.player-2,
+.reset,
+footer p {
+  border: 2px solid var(--main);
+  color: var(--main);
+  font-weight: bolder;
+  background-color: white;
 }
 
 header .reset {
   grid-area: 2 / 5 / 3 / 7;
+}
+
+.reset:hover {
+  cursor: pointer;
+}
+
+.game-board {
+  background-color: white;
+  width: clamp(320px, 50%, 700px);
+  height: 90%;
+  border-radius: 22px;
 }
