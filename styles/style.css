@@ -1,17 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Economica&family=Permanent+Marker&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Economica&family=Permanent+Marker&display=swap");
 
 :root {
   --main: #234e70;
   --sub: #faf8bf;
-  --title-font: 'Permanent Marker', cursive, serif;
+  --title-font: "Permanent Marker", cursive, serif;
   --title-font-size: 3.3rem;
-  --main-font: 'Economica', sans-serif;
+  --main-font: "Economica", sans-serif;
   --main-font-size: 1.2rem;
 }
 
 body {
   display: grid;
-  grid-template: 20% 1fr 5% 30px/ 1fr;
+  height: 100vh;
+  grid-template: 25% 60% 15% / 1fr;
+  gap: 10px;
   font-family: var(--main-font);
   font-size: var(--main-font-size);
   place-items: center;
@@ -25,8 +27,8 @@ header {
   margin: 0 auto;
   width: clamp(320px, 50%, 735px);
   max-width: 100vw;
-  grid-template: 1fr 42px / 10px 80px 80px 1fr 10px 70px 10px;
-  gap: 10px;
+  grid-template: 1fr 56px / 10px 56px 56px 1fr 10px 70px 10px;
+  gap: 18px;
 }
 
 header h1 {
@@ -48,13 +50,23 @@ header .player-2 {
   grid-area: 2 / 3 / 3 / 3;
 }
 
+/* .player-1, .player-2 {
+    height: 56px;
+    width: 56px;
+} */
+
 .player-1,
 .player-2,
 footer p {
   background-color: var(--sub);
   border: 1px solid var(--main);
   padding: 0.5em;
-  line-height: 20px;
+  line-height: 32px;
+}
+
+.player-1,
+.player-2 {
+  border-radius: 50%;
 }
 
 .player-1,
@@ -75,9 +87,75 @@ header .reset {
   cursor: pointer;
 }
 
+.reset,
+footer p {
+  border-radius: 15px;
+}
+
 .game-board {
   background-color: white;
-  width: clamp(320px, 50%, 700px);
+  width: clamp(320px, 50%, 400px);
   height: 90%;
   border-radius: 22px;
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    "a b c"
+    "d e f"
+    "g h i"
+    ;
+border: 10px solid white;
+}
+
+.game-board .a {
+  border-right: 4px solid var(--main);
+  border-bottom: 4px solid var(--main);
+}
+
+.game-board .b {
+  border-bottom: 4px solid var(--main);
+}
+
+.game-board .c {
+  border-left: 4px solid var(--main);
+  border-bottom: 4px solid var(--main);
+}
+
+.game-board .d {
+  border-right: 4px solid var(--main);
+}
+
+.game-board .f {
+  border-left: 4px solid var(--main);
+}
+
+.game-board .g {
+  border-right: 4px solid var(--main);
+  border-top: 4px solid var(--main);
+}
+
+.game-board .h {
+  border-top: 4px solid var(--main);
+}
+
+.game-board .i {
+  border-top: 4px solid var(--main);
+  border-left: 4px solid var(--main);
+}
+
+.a:hover,
+.b:hover,
+.c:hover,
+.d:hover,
+.e:hover,
+.f:hover,
+.g:hover,
+.h:hover,
+.i:hover {
+    cursor: pointer;
+
+}
+
+footer {
+  align-self: start;
 }
