@@ -1,41 +1,53 @@
 //IIFE for the game itself
-(function () {
-    "use strict";
-  
-    //module for the game board
-    const gameBoard = (() => {
-      const squares = document.querySelectorAll(".square");
-      const board = [
-        ["x", "", ""],
-        ["", "", ""],
-        ["", "", "o"],
-      ];
-  
-  
-  
-      //function for rendering move
-      const renderMove = (g) => {
-        for(let i = 0; i < board.length; i++) {
-          for(let j = 0; j < board.length; j++) {
-            console.log(board[i][j])
-          }
-        }
-        // console.log('hey', g)
-      };
-  
-      squares.forEach((sqaure, index) => {
-        sqaure.addEventListener("click", renderMove.bind(this, index));
-      });
-  
-      return { renderMove };
-    })();
-  
-    //module for the controller
-    // const controller = (() => {
-    //   const resetBtn = document.getElementById("reset-btn");
-    //   const gameOver = false;
-    //   let currentPlayer = 1;
-  
+;(function () {
+  'use strict'
+
+  function Player(name, score, sign) {
+    const getName = () => name
+    const getScore = () => score
+    const getSign = () => sign
+
+    const makeMove = () => {
+      console.log('test', this)
+    }
+
+    return { getName, getScore, getSign, makeMove }
+  }
+
+  //module for the game board
+  const gameBoard = (() => {
+    const squares = document.querySelectorAll('.square')
+    // const player = controller.currentPlayer
+    const board = [
+      ['x', '', ''],
+      ['', '', ''],
+      ['', '', 'o'],
+    ]
+
+    //function for rendering move
+    // const makeMove = (g, arr) => {
+    //   for (let i = 0; i < board.length; i++) {
+    //     for (let j = 0; j < board.length; j++) {
+    //       console.log(board[i][j], g, arr[g], arr[g].dataset.index)
+    //     }
+    //   }
+    // }
+
+    //   makeMove.bind(this, index, arr)
+    //active player rendermove add render move to bind
+
+    return { board, squares }
+  })()
+
+  // module for the controller
+  const controller = (() => {
+    const resetBtn = document.getElementById('reset-btn')
+    const player1 = Player('Tyler', '2', 'x')
+    const player2 = Player('Craig', '2', 'o')
+    const gameOver = false
+    let currentPlayer = player1
+    let squares = gameBoard.squares
+
     //   const clickHandler = () => {
     //     if (this.innerText != "x" && this.innerText != "o") {
     //       if (currentPlayer === 2) {
@@ -44,34 +56,38 @@
     //       } else if (currentPlayer === 1) {
     //         this.innerText = "x";
     //         currentPlayer = 2;
-  
+
     //       }
     //       moves++
     //       checkforWin()
     //     }
     //   }
-  
-    //   const reset = () => {
-    //     const squares = document.querySelectorAll(".square");
-    //     squares.forEach((square) => {
-    //       square.innerText = "";
-    //     });
-    //   };
-  
-    //   resetBtn.addEventListener("click", reset);
-  
-    //   return { gameOver, currentPlayer, clickHandler };
-    // })();
-  
-    const Player = (name, score, sign) => {
-      const getName = () => name;
-      const getScore = () => score;
-      const getSign = () => sign;
-  
-      return { getName, getScore, getSign };
-    };
-  
-    const player1 = Player("Tyler", "2", "x");
-    const player2 = Player("Craig", "2", "o");
-  })();
-  
+
+    // function for rendering move
+    const makeMove = (g, arr) => {
+      let board = gameBoard.board
+      for (let i = 0; i < board.length; i++) {
+        for (let j = 0; j < board.length; j++) {
+          console.log(board[i][j], g, arr[g], arr[g].dataset.index)
+        }
+      }
+    }
+
+    const reset = () => {
+      const squares = document.querySelectorAll('.square')
+      squares.forEach((square) => {
+        square.innerText = ''
+      })
+    }
+
+    resetBtn.addEventListener('click', reset)
+
+    squares.forEach((sqaure, index, arr) => {
+      sqaure.addEventListener('click', makeMove.bind(this, index, arr))
+    })
+
+    return { gameOver, currentPlayer }
+  })()
+
+  console.log(controller.currentPlayer.makeMove())
+})()
