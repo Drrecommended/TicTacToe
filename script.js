@@ -7,8 +7,8 @@
     const getScore = () => score
     const getSign = () => sign
 
-    const makeMove = () => {
-      console.log('test', this)
+    const makeMove = (g, arr) => {
+      gameBoard.render(g, arr, getName)
     }
 
     return { getName, getScore, getSign, makeMove }
@@ -24,6 +24,14 @@
       ['', '', 'o'],
     ]
 
+    const render = (g, arr, getName) => {
+      console.log(g, arr, getName())
+      for (let i = 0; i < board.length; i++) {
+        for (let j = 0; j < board.length; j++) {
+
+        }
+      }
+    }
     //function for rendering move
     // const makeMove = (g, arr) => {
     //   for (let i = 0; i < board.length; i++) {
@@ -36,7 +44,7 @@
     //   makeMove.bind(this, index, arr)
     //active player rendermove add render move to bind
 
-    return { board, squares }
+    return { board, squares, render }
   })()
 
   // module for the controller
@@ -64,14 +72,14 @@
     //   }
 
     // function for rendering move
-    const makeMove = (g, arr) => {
-      let board = gameBoard.board
-      for (let i = 0; i < board.length; i++) {
-        for (let j = 0; j < board.length; j++) {
-          console.log(board[i][j], g, arr[g], arr[g].dataset.index)
-        }
-      }
-    }
+    // const makeMove = (g, arr) => {
+    //   let board = gameBoard.board
+    //   for (let i = 0; i < board.length; i++) {
+    //     for (let j = 0; j < board.length; j++) {
+    //       console.log(board[i][j], g, arr[g], arr[g].dataset.index)
+    //     }
+    //   }
+    // }
 
     const reset = () => {
       const squares = document.querySelectorAll('.square')
@@ -83,11 +91,12 @@
     resetBtn.addEventListener('click', reset)
 
     squares.forEach((sqaure, index, arr) => {
-      sqaure.addEventListener('click', makeMove.bind(this, index, arr))
+      sqaure.addEventListener(
+        'click',
+        currentPlayer.makeMove.bind(this, index, arr)
+      )
     })
 
     return { gameOver, currentPlayer }
   })()
-
-  console.log(controller.currentPlayer.makeMove())
 })()
