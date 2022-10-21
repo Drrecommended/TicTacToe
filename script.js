@@ -8,7 +8,15 @@
     const getSign = () => sign
 
     const makeMove = (g, arr) => {
-      gameBoard.render(g, arr, getName)
+      const playerSign = getSign()
+      let index
+      for (let i = 0; i < gameBoard.board.length; i++) {
+        if (i === g) {
+          gameBoard.board[i] = playerSign
+          index = i
+        }
+      }
+      gameBoard.renderMove(index, playerSign)
     }
 
     return { getName, getScore, getSign, makeMove }
@@ -18,33 +26,19 @@
   const gameBoard = (() => {
     const squares = document.querySelectorAll('.square')
     // const player = controller.currentPlayer
-    const board = [
-      ['x', '', ''],
-      ['', '', ''],
-      ['', '', 'o'],
-    ]
+    const board = new Array(9)
 
-    const render = (g, arr, getName) => {
-      console.log(g, arr, getName())
-      for (let i = 0; i < board.length; i++) {
-        for (let j = 0; j < board.length; j++) {
-
+    const renderMove = (index, sign) => {
+      squares.forEach((square) => {
+        console.log(index)
+        if (+square.dataset.index === index) {
+          square.innerText = sign
         }
-      }
+      })
+      controller.checkForWin()
     }
-    //function for rendering move
-    // const makeMove = (g, arr) => {
-    //   for (let i = 0; i < board.length; i++) {
-    //     for (let j = 0; j < board.length; j++) {
-    //       console.log(board[i][j], g, arr[g], arr[g].dataset.index)
-    //     }
-    //   }
-    // }
 
-    //   makeMove.bind(this, index, arr)
-    //active player rendermove add render move to bind
-
-    return { board, squares, render }
+    return { board, squares, renderMove }
   })()
 
   // module for the controller
@@ -56,33 +50,7 @@
     let currentPlayer = player1
     let squares = gameBoard.squares
 
-    //   const clickHandler = () => {
-    //     if (this.innerText != "x" && this.innerText != "o") {
-    //       if (currentPlayer === 2) {
-    //         this.innerText = "o";
-    //         currentPlayer = 1;
-    //       } else if (currentPlayer === 1) {
-    //         this.innerText = "x";
-    //         currentPlayer = 2;
-
-    //       }
-    //       moves++
-    //       checkforWin()
-    //     }
-    //   }
-
-    // function for rendering move
-    // const makeMove = (g, arr) => {
-    //   let board = gameBoard.board
-    //   for (let i = 0; i < board.length; i++) {
-    //     for (let j = 0; j < board.length; j++) {
-    //       console.log(board[i][j], g, arr[g], arr[g].dataset.index)
-    //     }
-    //   }
-    // }
-
     const reset = () => {
-      const squares = document.querySelectorAll('.square')
       squares.forEach((square) => {
         square.innerText = ''
       })
