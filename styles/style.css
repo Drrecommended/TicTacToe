@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Economica&family=Permanent+Marker&display=swap");
 
 :root {
-  --main: #234e70;
+  --main: gold;
   --sub: #faf8bf;
   --title-font: "Permanent Marker", cursive, serif;
   --title-font-size: 3.3rem;
@@ -11,14 +11,12 @@
 
 body {
   display: grid;
-  height: 100vh;
-  grid-template: 25% 60% 15% / 1fr;
+  grid-template: 25% 400px 1fr / 1fr;
   gap: 10px;
   font-family: var(--main-font);
   font-size: var(--main-font-size);
   place-items: center;
-  background-color: #faf8bf;
-  background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z' fill='%23234e70' fill-opacity='0.33' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-color: var(--main);
 }
 
 header {
@@ -95,65 +93,50 @@ footer p {
 .game-board {
   background-color: white;
   width: clamp(320px, 50%, 400px);
-  height: 90%;
+  height: clamp(345px, 70%, 400px);
+  /* min-height: 340px; */
   border-radius: 22px;
-  position: relative;
   display: grid;
-  grid-template-areas:
-    "a b c"
-    "d e f"
-    "g h i"
-    ;
-border: 10px solid white;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  border: 10px solid white;
 }
 
-.game-board .a {
-  border-right: 4px solid var(--main);
-  border-bottom: 4px solid var(--main);
+.square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 70px;
 }
 
-.game-board .b {
-  border-bottom: 4px solid var(--main);
+
+.square:nth-child(1),
+.square:nth-child(2),
+.square:nth-child(3) {
+  border-bottom: 2px solid black;
 }
 
-.game-board .c {
-  border-left: 4px solid var(--main);
-  border-bottom: 4px solid var(--main);
+.square:nth-child(7),
+.square:nth-child(8),
+.square:nth-child(9) {
+  border-top: 2px solid black;
 }
 
-.game-board .d {
-  border-right: 4px solid var(--main);
+.square:nth-child(1),
+.square:nth-child(4),
+.square:nth-child(7) {
+  border-right: 2px solid black;
 }
 
-.game-board .f {
-  border-left: 4px solid var(--main);
+.square:nth-child(3),
+.square:nth-child(6),
+.square:nth-child(9) {
+  border-left: 2px solid black;
 }
 
-.game-board .g {
-  border-right: 4px solid var(--main);
-  border-top: 4px solid var(--main);
-}
-
-.game-board .h {
-  border-top: 4px solid var(--main);
-}
-
-.game-board .i {
-  border-top: 4px solid var(--main);
-  border-left: 4px solid var(--main);
-}
-
-.a:hover,
-.b:hover,
-.c:hover,
-.d:hover,
-.e:hover,
-.f:hover,
-.g:hover,
-.h:hover,
-.i:hover {
-    cursor: pointer;
-
+.square:hover {
+  cursor: pointer;
+  background-color: green;
 }
 
 footer {
