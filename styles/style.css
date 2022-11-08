@@ -23,9 +23,9 @@ header {
   display: grid;
   text-align: center;
   margin: 0 auto;
-  width: clamp(320px, 50%, 735px);
+  width: clamp(320px, 50%, 380px);
   max-width: 100vw;
-  grid-template: 1fr 56px / 10px 56px 56px 1fr 10px 70px 10px;
+  grid-template: 1fr 56px / 20px repeat(6, 1fr) 20px;
   gap: 18px;
 }
 
@@ -40,54 +40,29 @@ header h1 {
     -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-header .player-1 {
-  grid-area: 2 / 2 / 3 / 2;
-}
-
-header .player-2 {
-  grid-area: 2 / 3 / 3 / 3;
-}
-
-/* .player-1, .player-2 {
-    height: 56px;
-    width: 56px;
-} */
-
-.player-1,
-.player-2,
-footer p {
-  background-color: var(--sub);
-  padding: 0.5em;
-  line-height: 32px;
-}
-
-.player-1,
-.player-2 {
-  border-radius: 50%;
-}
-
-.player-1,
-.player-2,
 .reset,
-footer p {
+.github,
+.settings {
   border: 3px solid black;
   font-weight: bolder;
   background-color: white;
   box-shadow: 3px 3px 1px 0 black;
+  border-radius: 15px;
 }
 
 header .reset {
-  grid-area: 2 / 5 / 3 / 7;
+  font-weight: 900;
+  grid-area: 2 / -3;
 }
 
-.reset:hover {
+header .settings {
+  grid-area: 2 / -4;
+}
+
+.reset:hover, .settings:hover {
   cursor: pointer;
 }
 
-.reset,
-footer p {
-  border-radius: 15px;
-}
 
 .game-board {
   width: clamp(320px, 50%, 400px);
@@ -100,17 +75,11 @@ footer p {
   border: 10px solid white;
 }
 
-.player-one,
-.player-two {
-  position: absolute;
-}
-
 .square {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 70px;
-  background: linear-gradient(135deg, rgba(225, 225, 225, 0.1));
 }
 
 .square:nth-child(1),
@@ -146,9 +115,10 @@ footer {
   align-self: start;
 }
 
+.github {
+  padding: .7em;
+}
+
 a {
   text-decoration: none;
 }
-
-
-
