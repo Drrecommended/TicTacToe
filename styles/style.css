@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Economica&family=Permanent+Marker&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Economica&family=Permanent+Marker&display=swap');
 
 :root {
   --main: gold;
   --sub: #faf8bf;
-  --title-font: "Permanent Marker", cursive, serif;
+  --title-font: 'Permanent Marker', cursive, serif;
   --title-font-size: 3.3rem;
-  --main-font: "Economica", sans-serif;
+  --main-font: 'Economica', sans-serif;
   --main-font-size: 1.2rem;
 }
 
@@ -57,7 +57,6 @@ header .player-2 {
 .player-2,
 footer p {
   background-color: var(--sub);
-  border: 1px solid var(--main);
   padding: 0.5em;
   line-height: 32px;
 }
@@ -71,10 +70,10 @@ footer p {
 .player-2,
 .reset,
 footer p {
-  border: 2px solid var(--main);
-  color: var(--main);
+  border: 3px solid black;
   font-weight: bolder;
   background-color: white;
+  box-shadow: 3px 3px 1px 0 black;
 }
 
 header .reset {
@@ -91,10 +90,9 @@ footer p {
 }
 
 .game-board {
-  background-color: white;
   width: clamp(320px, 50%, 400px);
   height: clamp(345px, 70%, 400px);
-  /* min-height: 340px; */
+  position: relative;
   border-radius: 22px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -102,13 +100,18 @@ footer p {
   border: 10px solid white;
 }
 
+.player-one,
+.player-two {
+  position: absolute;
+}
+
 .square {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 70px;
+  background: linear-gradient(135deg, rgba(225, 225, 225, 0.1));
 }
-
 
 .square:nth-child(1),
 .square:nth-child(2),
@@ -142,3 +145,10 @@ footer p {
 footer {
   align-self: start;
 }
+
+a {
+  text-decoration: none;
+}
+
+
+
