@@ -43,7 +43,8 @@ header h1 {
 .reset,
 .github,
 .settings,
-.message {
+.message,
+.save {
   border: 3px solid black;
   font-weight: bolder;
   background-color: white;
@@ -58,7 +59,8 @@ header h1 {
 
 .reset,
 .github,
-.settings {
+.settings,
+.save {
   box-shadow: 3px 3px 1px 0 black;
 }
 
@@ -83,7 +85,10 @@ header .message {
 }
 
 .reset:hover,
-.settings:hover {
+.settings:hover,
+.save:hover,
+.github:hover {
+  box-shadow: none;
   cursor: pointer;
 }
 
@@ -159,7 +164,7 @@ a {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 180px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -174,8 +179,9 @@ a {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  width: 100%;
 }
 
 /* The Close Button */
@@ -183,7 +189,6 @@ a {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
-  font-weight: bold;
 }
 
 .close:hover,
@@ -191,4 +196,26 @@ a {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+form {
+  margin: 0 auto;
+  width: 280px;
+  padding-bottom: 50px;
+}
+
+form .flex {
+  display: flex;
+  gap: 20px;
+}
+
+form input {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding-left: 5px;
+}
+
+form .save {
+  float: right;
+  padding: 10px;
 }

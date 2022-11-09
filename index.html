@@ -48,22 +48,29 @@
   </footer>
   <div id="myModal" class="modal">
     <div class="modal-content">
-      <span class="close">&times;</span>
       <form action="POST">
+        <span class="close"><i class="fa-sharp fa-solid fa-xmark"></i></span>
+
         <label for="play-one-name">Player one name:</label><br />
         <input type="text" /><br />
 
         <label for="play-one-name">Player two name:</label><br />
         <input type="text" /><br />
-        <label for="input">computer</label><br />
-        <input type="checkbox" name="" id="" /><br />
-        <label for="difficulty">difficulty</label><br />
-        <select name="difficulty" id="difficulty">
-          <option value="easy">easy</option>
-          <option value="medium">medium</option>
-          <option value="hard">hard</option></select
-        ><br />
-        <input type="submit" value="SUBMIT" />
+        <div class="flex">
+          <div>
+            <label for="input">computer(CPU)</label><br />
+            <input type="checkbox" name="" id="" /><br />
+          </div>
+          <div>
+            <label for="difficulty">difficulty</label><br />
+            <select name="difficulty" id="difficulty">
+              <option value="easy">easy</option>
+              <option value="medium">medium</option>
+              <option value="hard">hard</option></select
+            ><br />
+          </div>
+        </div>
+        <input class="save" type="submit" value="SUBMIT" />
       </form>
     </div>
   </div>
