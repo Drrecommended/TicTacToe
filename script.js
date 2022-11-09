@@ -42,10 +42,12 @@ const gameBoard = (() => {
 const controller = (() => {
   const settingsBtn = document.getElementById('settings-btn')
   const modal = document.getElementById('myModal')
-  var span = document.getElementsByClassName('close')[0]
+  const span = document.getElementsByClassName('close')[0]
   const resetBtn = document.getElementById('reset-btn')
+
   const player1 = player('tyler', '2', 'x')
   const player2 = player('craig', '5', 'o')
+
   let currentPlayer = player1
   let moves = 0
   const WINNING_COMBINATIONS = [
@@ -59,7 +61,7 @@ const controller = (() => {
     [2, 4, 6],
   ]
 
-  function changePlayer() {
+  const changePlayer = () => {
     if (currentPlayer === player1) {
       currentPlayer = player2
     } else if (currentPlayer === player2) {
@@ -109,22 +111,22 @@ const controller = (() => {
     openNav()
   })
 
-// When the user clicks the button, open the modal 
-settingsBtn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  // When the user clicks the button, open the modal
+  settingsBtn.onclick = function () {
+    modal.style.display = 'block'
   }
-}
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = 'none'
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = 'none'
+    }
+  }
 
   return { currentPlayer, changePlayer, checkForWin, gameOver, moves }
 })()
