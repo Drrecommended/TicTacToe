@@ -43,16 +43,17 @@ header h1 {
 .reset,
 .github,
 .settings,
-.turn {
+.message {
   border: 3px solid black;
   font-weight: bolder;
   background-color: white;
   border-radius: 15px;
 }
 
-.turn {
+.message {
   letter-spacing: 1px;
-  padding: .5em;
+  padding: 0.5em;
+  visibility: hidden;
 }
 
 .reset,
@@ -75,9 +76,8 @@ header .settings {
   grid-area: 2 / -4;
 }
 
-header .turn {
+header .message {
   align-self: center;
-  width: 80px;
   white-space: nowrap;
   grid-area: 2 / -5;
 }
@@ -139,8 +139,7 @@ header .turn {
 
 .square:hover {
   cursor: pointer;
-  background-color:rgba(0, 0, 0, 0.0);
-
+  background-color: rgba(0, 0, 0, 0);
 }
 
 footer {

@@ -46,10 +46,12 @@ const gameBoard = (() => {
 })()
 
 const controller = (() => {
+  const message = document.getElementById('message')
   const settingsBtn = document.getElementById('settings-btn')
+  const resetBtn = document.getElementById('reset-btn')
+
   const modal = document.getElementById('myModal')
   const span = document.getElementsByClassName('close')[0]
-  const resetBtn = document.getElementById('reset-btn')
 
   const player1 = player('tyler', '2', 'x')
   const player2 = player('craig', '5', 'o')
@@ -84,16 +86,13 @@ const controller = (() => {
 
 
   const gameOver = (sign) => {
-    let over = false
+    message.style.visibility = "visible"
     if (sign) {
-      console.log('game over ' + sign + ' wins')
-      over = true
+      message.innerText = currentPlayer.name + `(${sign})` + ' wins!'
     } else {
-      console.log('draw!')
-      over = true
+      message.innerText = 'Draw!'
     }
     gameBoard.disableBoard()
-    return over
   }
 
   const reset = () => {
@@ -105,6 +104,7 @@ const controller = (() => {
       gameBoard.squares[i].innerText = ''
       gameBoard.squares[i].style.pointerEvents = 'all'
     }
+    message.style.visibility = 'hidden'
   }
 
   gameBoard.squares.forEach((square, index) => {
