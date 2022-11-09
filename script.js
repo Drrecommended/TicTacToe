@@ -28,6 +28,12 @@ const gameBoard = (() => {
     controller.changePlayer()
   }
 
+  const disableBoard = () => {
+    squares.forEach(square => {
+      square.style.pointerEvents = 'none'
+    })
+  }
+
   function changeColor(index, sign) {
     if (sign === 'x') {
       squares[index].setAttribute('style', 'color: blue')
@@ -36,7 +42,7 @@ const gameBoard = (() => {
     }
   }
 
-  return { boardMoves, squares, render }
+  return { boardMoves, squares, render, disableBoard }
 })()
 
 const controller = (() => {
@@ -75,6 +81,8 @@ const controller = (() => {
     })
   }
 
+
+
   const gameOver = (sign) => {
     let over = false
     if (sign) {
@@ -84,6 +92,7 @@ const controller = (() => {
       console.log('draw!')
       over = true
     }
+    gameBoard.disableBoard()
     return over
   }
 
@@ -94,6 +103,7 @@ const controller = (() => {
     for (let i = 0; i < movesMade.length; i++) {
       movesMade[i] = ''
       gameBoard.squares[i].innerText = ''
+      gameBoard.squares[i].style.pointerEvents = 'all'
     }
   }
 
