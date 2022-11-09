@@ -59,10 +59,10 @@ header .settings {
   grid-area: 2 / -4;
 }
 
-.reset:hover, .settings:hover {
+.reset:hover,
+.settings:hover {
   cursor: pointer;
 }
-
 
 .game-board {
   width: clamp(320px, 50%, 400px);
@@ -85,25 +85,25 @@ header .settings {
 .square:nth-child(1),
 .square:nth-child(2),
 .square:nth-child(3) {
-  border-bottom: 2px solid black;
+  border-bottom: 3px solid black;
 }
 
 .square:nth-child(7),
 .square:nth-child(8),
 .square:nth-child(9) {
-  border-top: 2px solid black;
+  border-top: 3px solid black;
 }
 
 .square:nth-child(1),
 .square:nth-child(4),
 .square:nth-child(7) {
-  border-right: 2px solid black;
+  border-right: 3px solid black;
 }
 
 .square:nth-child(3),
 .square:nth-child(6),
 .square:nth-child(9) {
-  border-left: 2px solid black;
+  border-left: 3px solid black;
 }
 
 .square:hover {
@@ -116,9 +116,48 @@ footer {
 }
 
 .github {
-  padding: .7em;
+  padding: 0.7em;
 }
 
 a {
   text-decoration: none;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }

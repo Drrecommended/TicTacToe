@@ -40,6 +40,9 @@ const gameBoard = (() => {
 })()
 
 const controller = (() => {
+  const settingsBtn = document.getElementById('settings-btn')
+  const modal = document.getElementById('myModal')
+  var span = document.getElementsByClassName('close')[0]
   const resetBtn = document.getElementById('reset-btn')
   const player1 = player('tyler', '2', 'x')
   const player2 = player('craig', '5', 'o')
@@ -94,7 +97,6 @@ const controller = (() => {
 
   gameBoard.squares.forEach((square, index) => {
     square.addEventListener('click', () => {
-      
       currentPlayer.makeMove(square, index)
     })
   })
@@ -102,6 +104,27 @@ const controller = (() => {
   resetBtn.addEventListener('click', () => {
     reset()
   })
+
+  settingsBtn.addEventListener('click', () => {
+    openNav()
+  })
+
+// When the user clicks the button, open the modal 
+settingsBtn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
   return { currentPlayer, changePlayer, checkForWin, gameOver, moves }
 })()
