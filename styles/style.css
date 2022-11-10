@@ -52,9 +52,9 @@ header h1 {
 }
 
 .message {
+  border: none;
   letter-spacing: 1px;
   padding: 0.5em;
-  visibility: hidden;
 }
 
 .reset,

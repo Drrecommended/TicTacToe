@@ -19,17 +19,18 @@ const gameBoard = (() => {
     squares[index].innerText = boardMoves[index]
     controller.moves++
     console.log(controller.moves)
+    controller.changePlayer()
+
     if (controller.checkForWin(sign)) {
       controller.gameOver(sign)
       return
     } else if (controller.moves === 9) {
       controller.gameOver()
     }
-    controller.changePlayer()
   }
 
   const disableBoard = () => {
-    squares.forEach(square => {
+    squares.forEach((square) => {
       square.style.pointerEvents = 'none'
     })
   }
@@ -49,6 +50,9 @@ const controller = (() => {
   const message = document.getElementById('message')
   const settingsBtn = document.getElementById('settings-btn')
   const resetBtn = document.getElementById('reset-btn')
+
+  const form = document.getElementById('form')
+
 
   const modal = document.getElementById('myModal')
   const span = document.getElementsByClassName('close')[0]
@@ -75,6 +79,8 @@ const controller = (() => {
     } else if (currentPlayer === player2) {
       currentPlayer = player1
     }
+    message.innerText =
+      currentPlayer.name + `(${currentPlayer.sign})'s` + ' turn'
   }
 
   const checkForWin = (player) => {
@@ -83,10 +89,7 @@ const controller = (() => {
     })
   }
 
-
-
   const gameOver = (sign) => {
-    message.style.visibility = "visible"
     if (sign) {
       message.innerText = currentPlayer.name + `(${sign})` + ' wins!'
     } else {
@@ -95,16 +98,20 @@ const controller = (() => {
     gameBoard.disableBoard()
   }
 
+  const getPlayerOneName = () => {
+
+  }
+
   const reset = () => {
     controller.moves = 0
     const movesMade = gameBoard.boardMoves
-    currentPlayer = player1
+    currentPlayer = player2
+    changePlayer()
     for (let i = 0; i < movesMade.length; i++) {
       movesMade[i] = ''
       gameBoard.squares[i].innerText = ''
       gameBoard.squares[i].style.pointerEvents = 'all'
     }
-    message.style.visibility = 'hidden'
   }
 
   gameBoard.squares.forEach((square, index) => {
@@ -121,22 +128,29 @@ const controller = (() => {
     openNav()
   })
 
-  // When the user clicks the button, open the modal
   settingsBtn.onclick = function () {
     modal.style.display = 'block'
   }
 
-  // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
     modal.style.display = 'none'
   }
 
-  // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = 'none'
     }
   }
 
+  form.addEventListener('submit', (e) => {
+
+    //this is where i left off
+    // grab inputs from form and use them 
+    console.log('test')
+    e.preventDefault()
+  })
+
   return { currentPlayer, changePlayer, checkForWin, gameOver, moves }
 })()
+  
+

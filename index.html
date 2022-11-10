@@ -19,7 +19,7 @@
   <body>
     <header>
       <h1>Tic Tac Toe</h1>
-      <p class="message" id="message">X's Turn</p>
+      <p class="message" id="message">Player one(X)'s Turn</p>
       <button class="settings" id="settings-btn">
         <i class="fa-solid fa-gears"></i>
       </button>
@@ -48,14 +48,14 @@
   </footer>
   <div id="myModal" class="modal">
     <div class="modal-content">
-      <form action="POST">
+      <form id="form">
         <span class="close"><i class="fa-sharp fa-solid fa-xmark"></i></span>
 
         <label for="play-one-name">Player one name:</label><br />
-        <input type="text" /><br />
+        <input type="text" id="player-one-name"/><br />
 
         <label for="play-one-name">Player two name:</label><br />
-        <input type="text" /><br />
+        <input type="text" id="player-two-name" /><br />
         <div class="flex">
           <div>
             <label for="input">computer(CPU)</label><br />
