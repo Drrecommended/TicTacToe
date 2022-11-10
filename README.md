@@ -1,5 +1,7 @@
 # Things I learned while working on this project:
 
+***
+
 -The difference between arrow functions and functions is the context of how they use "this". 
 
 
@@ -17,5 +19,13 @@ the property of an object is set by the engine exactly one time.
 
 
 -I learned that modules are essentially factory functions that have been wrapped in a IIFE(immediatly Invoked Function Expression)
+
+## Other notes
+
+-I will be coming back to work on an impossible mode CPU
+
+### Live Demo
+
+[githubPages](https://drrecommended.github.io/TicTacToe/ "Live site demo")
 
 ![pictureOfProject](/assets/tictactoe.png)
