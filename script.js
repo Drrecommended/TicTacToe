@@ -57,8 +57,8 @@ const controller = (() => {
   const modal = document.getElementById('myModal')
   const span = document.getElementsByClassName('close')[0]
 
-  const player1 = player('tyler', '2', 'x')
-  const player2 = player('craig', '5', 'o')
+  const player1 = player('Player one', '2', 'x')
+  const player2 = player('Player two', '5', 'o')
 
   let currentPlayer = player1
   let moves = 0
@@ -124,31 +124,31 @@ const controller = (() => {
     reset()
   })
 
-  settingsBtn.addEventListener('click', () => {
-    openNav()
-  })
+  // settingsBtn.addEventListener('click', () => {
+  //   openNav()
+  // })
 
-  settingsBtn.onclick = function () {
-    modal.style.display = 'block'
-  }
+  // settingsBtn.onclick = function () {
+  //   modal.style.display = 'block'
+  // }
 
-  span.onclick = function () {
-    modal.style.display = 'none'
-  }
+  // span.onclick = function () {
+  //   modal.style.display = 'none'
+  // }
 
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = 'none'
-    }
-  }
+  // window.onclick = function (event) {
+  //   if (event.target == modal) {
+  //     modal.style.display = 'none'
+  //   }
+  // }
 
-  form.addEventListener('submit', (e) => {
+  // form.addEventListener('submit', (e) => {
 
-    //this is where i left off
-    // grab inputs from form and use them 
-    console.log('test')
-    e.preventDefault()
-  })
+  //   //this is where i left off
+  //   // grab inputs from form and use them 
+  //   console.log('test')
+  //   e.preventDefault()
+  // })
 
   return { currentPlayer, changePlayer, checkForWin, gameOver, moves }
 })()
