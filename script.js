@@ -53,7 +53,6 @@ const controller = (() => {
 
   const form = document.getElementById('form')
 
-
   const modal = document.getElementById('myModal')
   const span = document.getElementsByClassName('close')[0]
 
@@ -98,9 +97,7 @@ const controller = (() => {
     gameBoard.disableBoard()
   }
 
-  const getPlayerOneName = () => {
-
-  }
+  const getPlayerOneName = () => {}
 
   const reset = () => {
     controller.moves = 0
@@ -145,12 +142,11 @@ const controller = (() => {
   // form.addEventListener('submit', (e) => {
 
   //   //this is where i left off
-  //   // grab inputs from form and use them 
+  //   // grab inputs from form and use them
   //   console.log('test')
   //   e.preventDefault()
   // })
 
   return { currentPlayer, changePlayer, checkForWin, gameOver, moves }
 })()
-  
 
